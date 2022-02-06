@@ -2,6 +2,8 @@
 
 Ohjelmassa fuksit keräävät pisteitä Fuksipassiinsa.
 
+Ohjelma löytyy Herokusta osoitteessa [https://evening-caverns-33356.herokuapp.com/](https://evening-caverns-33356.herokuapp.com/)
+
 ## Käyttäjäryhmät
 
 * Admin (fuksi- ja tuutorivastaavat)
@@ -26,3 +28,7 @@ Ohjelmassa fuksit keräävät pisteitä Fuksipassiinsa.
 * Admin voi poistaa pisteitä
 * Admin voi muokata pisteitä
 * Fuksi voi dokata Fuksipassin
+
+Alustava suunnitelma tietokantatauluista löytyy [täältä](https://github.com/mkkarl/fuksipassi_tsoha2022/blob/main/documents/FP_tietokantataulut.pdf)
+
+Alustavat luonnokset sivuista löytyy [täältä](https://github.com/mkkarl/fuksipassi_tsoha2022/blob/main/documents/FP_sivuluonnokset.pdf)
