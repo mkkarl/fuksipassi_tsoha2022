@@ -4,9 +4,10 @@ import users
 
 @app.route("/")
 def index():
-    if users.user_id() == 0:
+    user_id = users.user_id()
+    if user_id == 0:
         return redirect("/login")
-    return render_template("index.html")
+    return render_template("index.html", is_admin=users.is_admin(user_id), is_tutor=users.is_tutor(user_id), is_fresher=users.is_fresher(user_id))
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

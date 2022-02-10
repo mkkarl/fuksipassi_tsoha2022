@@ -3,4 +3,13 @@
 {% block content %}
 <h2>Etusivu</h2>
 Tervetuloa käyttämään Fuksipassia!
+{% if is_admin %}
+Adminasiaa
+{% endif %}
+{% if is_tutor %}
+Tuutoriasiaa
+{% endif %}
+{% if is_fresher %}
+Fuksiasiaa
+{% endif %}
 {% endblock %}

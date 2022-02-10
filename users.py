@@ -32,3 +32,30 @@ def register(username, password):
 
 def user_id():
     return session.get("user_id",0)
+
+def is_admin(user_id):
+    sql = "SELECT COUNT(*) FROM users_roles WHERE user_id=:user_id AND role_id=:role_id"
+    result = db.session.execute(sql, {"user_id":user_id, "role_id":1})
+    row = result.fetchone()
+    if row.count > 0:
+        return True
+    else:
+        return False
+
+def is_tutor(user_id):
+    sql = "SELECT COUNT(*) FROM users_roles WHERE user_id=:user_id AND role_id=:role_id"
+    result = db.session.execute(sql, {"user_id":user_id, "role_id":2})
+    row = result.fetchone()
+    if row.count > 0:
+        return True
+    else:
+        return False
+
+def is_fresher(user_id):
+    sql = "SELECT COUNT(*) FROM users_roles WHERE user_id=:user_id AND role_id=:role_id"
+    result = db.session.execute(sql, {"user_id":user_id, "role_id":3})
+    row = result.fetchone()
+    if row.count > 0:
+        return True
+    else:
+        return False
