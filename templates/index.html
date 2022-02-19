@@ -2,14 +2,15 @@
 {% block title %}Etusivu{% endblock %}
 {% block content %}
 <h2>Etusivu</h2>
-Tervetuloa käyttämään Fuksipassia!
-{% if is_admin %}
-Adminasiaa
+<p>Tervetuloa käyttämään Fuksipassia!
+{% if is_admin or is_tutor%}
+<p>
+<a href="/users">Käyttäjät</a>
 {% endif %}
 {% if is_tutor %}
-Tuutoriasiaa
+<p>Tuutoriasiaa
 {% endif %}
 {% if is_fresher %}
-Fuksiasiaa
+<p>Fuksiasiaa
 {% endif %}
 {% endblock %}

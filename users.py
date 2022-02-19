@@ -1,3 +1,4 @@
+from unittest import result
 from db import db
 from flask import session
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -59,3 +60,13 @@ def is_fresher(user_id):
         return True
     else:
         return False
+
+def userlist():
+    sql = "SELECT id, username FROM users"
+    result = db.session.execute(sql).fetchall()
+    return result
+
+def userinfo(id):
+    sql = "SELECT * FROM users WHERE id=:id"
+    result = db.session.execute(sql, {"id":id}).fetchone()
+    return result

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Etusivu{% endblock %}
+{% block content %}
+<h2>Käyttäjä</h2>
+<p>
+    Käyttäjänimi: {{ userinfo.username }}
+</p>
+{% if is_admin %}
+<p>Adminasiaa
+{% endif %}
+{% if is_tutor %}
+<p>Tuutoriasiaa
+{% endif %}
+{% if is_fresher %}
+<p>Fuksiasiaa
+{% endif %}
+{% endblock %}

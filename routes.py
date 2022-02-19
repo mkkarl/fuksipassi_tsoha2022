@@ -44,3 +44,25 @@ def register():
             return redirect("/")
         else:
             return render_template("error.html", message="Rekisteröinti ei onnistunut")
+
+@app.route("/users")
+def allusers():
+    user_id = users.user_id()
+    if user_id == 0:
+        return redirect("/login")
+    return render_template("users.html", is_admin=users.is_admin(user_id), is_tutor=users.is_tutor(user_id), is_fresher=users.is_fresher(user_id), userlist=users.userlist())
+
+@app.route("/user/<int:id>")
+def user(id):
+    user_id = users.user_id()
+    if user_id == id or users.is_admin(user_id) or users.is_tutor(user_id):
+        userinfo = users.userinfo(id)
+        return render_template("user.html", is_admin=users.is_admin(user_id), is_tutor=users.is_tutor(user_id), is_fresher=users.is_fresher(user_id), userinfo=userinfo)
+    return redirect("/")
+
+@app.route("/user")
+def ownprofile():
+    user_id = users.user_id()
+    if user_id == 0:
+        return redirect("/login")
+    return redirect("/user/" + str(user_id))

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Käyttäjät{% endblock %}
+{% block content %}
+<h2>Käyttäjät</h2>
+{% if is_admin or is_tutor %}
+<ul>
+{% for u in userlist %}
+<li><a href="/user/{{ u.id }}">{{ u.username }}</a>
+{% endfor %}
+{% endif %}
+</ul>
+{% if is_tutor %}
+<p>Tuutoriasiaa
+{% endif %}
+{% if is_fresher %}
+<p>Fuksiasiaa
+{% endif %}
+{% endblock %}
