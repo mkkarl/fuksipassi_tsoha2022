@@ -27,6 +27,14 @@ def register(username, password):
         db.session.commit()
     except:
         return False
+    sql = "SELECT id FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username":username}).fetchone()
+    id = result.id
+    print("haettu id: " + str(id))
+    role = 3
+    sql = "INSERT INTO users_roles (user_id,role_id) VALUES (:user_id,:role_id)"
+    db.session.execute(sql, {"user_id":id, "role_id":role})
+    db.session.commit()
     return login(username, password)
 
 # TODO: käyttäjätietojen syöttö ja päivitys
